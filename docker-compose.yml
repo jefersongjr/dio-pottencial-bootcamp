@@ -1,0 +1,33 @@
+version: "2"
+
+services:
+  # Serviço que irá rodar o node
+  dotnet-sdk:
+    # Imagem base do container
+    image: mcr.microsoft.com/dotnet/sdk:7.0
+    # Nome do container para facilitar execução
+    container_name: dotnet-container
+    # Mesmo que `docker run -t`
+    tty: true
+    # Mesmo que `docker run -i`
+    stdin_open: true
+    # Substitui o comando padrão da imagem do node
+    command: bash
+    # Restarta a imagem caso algo a faça parar
+    restart: always
+    # Diretório padrão de execução
+    working_dir: /app
+    # Lista de volumes (diretórios) mapeados de fora para dentro do container
+    volumes:
+      # Monta o diretório atual, com todos os dados do projeto, 
+      # dentro do diretório /app
+      - ./:/app
+    # Lista de portas mapeadas de dentro para fora do container
+    # na notação porta_de_fora:porta_de_dentro
+    ports:
+      # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
+      - 5000:5000
+
+networks:
+  default:
+    name: dotnet-container_net

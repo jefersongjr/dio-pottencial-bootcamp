@@ -8,6 +8,8 @@ decimal preco = 1.80M; // representa o float sem cortar o zero
 
 bool condicao = true;
 
+DateTime dataAtual = DateTime.Now;
+
 Console.WriteLine(apresentacao);
 Console.WriteLine("Valor da variável quantidade: " + quantidade);
 
@@ -18,3 +20,7 @@ Console.WriteLine("Valor da variável quantidade: " + quantidade);
 Console.WriteLine("Valor da variável altura: " + altura);
 Console.WriteLine("Valor da variável preco: " + preco);
 Console.WriteLine("Valor da variável condicao: " + condicao);
+Console.WriteLine("data Atual " + dataAtual);
+Console.WriteLine("data Atual " + dataAtual.ToString("dd/MM/yyyy")); // Manipulando datas.
+
+
